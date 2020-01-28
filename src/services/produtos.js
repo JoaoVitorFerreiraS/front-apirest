@@ -1,17 +1,20 @@
 import { http } from './config'
 
-export default{
+export default	{
 
-    listar:() =>{
+	salvar:(produto)=>{
+		return http.post('produto',produto);
+  },
+    
+	atualizar:(produto)=>{
+		return http.put('produto',produto);
+  },
 
-        return http.get('produtos')
-
-    },
-
-    salvar:(produto) => {
-      
-        return http.post('produto', produto)
-
-    }
-
+  listar:()=>{
+		return http.get('produtos')
+  },
+    
+	apagar:(produto)=>{
+		return http.delete('produto', { data: produto })
+	}
 }
